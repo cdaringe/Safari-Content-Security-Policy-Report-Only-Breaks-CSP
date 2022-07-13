@@ -10,7 +10,7 @@ const REPORT_PATHNAME = "/csp-violation-report";
  * @info flip this switch to true observe CSP failures.
  * this turns on the Content-Security-Policy-Report-Only header
  */
-const CSP_REPORT_VALUE = true
+const CSP_REPORT_VALUE = false
   ? `script-src 'self' 'strict-dynamic' 'nonce-abc123'; report-uri  ${REPORT_PATHNAME}`
   : "";
 
