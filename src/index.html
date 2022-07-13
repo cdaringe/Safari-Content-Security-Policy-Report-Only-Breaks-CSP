@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head nonce="abc123">
+    <title>CSP Tester</title>
+    <!-- case: 'self' script -->
+    <script src="/self.js"></script>
+
+    <!-- case: inline script (nonce) -->
+    <script nonce="abc123">
+      console.log("case: inline script, safe (nonce)");
+      var _bcq = _bcq || [];
+      _bcq.push([
+        "_setOptions",
+        {
+          start_time: new Date().getTime(),
+          bd: "beacon.qa.walmart.com",
+          bh: "beacon.qa.lightestwithqm.walmart.com",
+          sv: "1.1.5",
+        },
+      ]);
+    </script>
+    <!-- case: inline script, unsafe -->
+    <script>
+      console.log("case: inline script, unsafe");
+    </script>
+    <!-- case: non-self host script -->
+    <script
+      nonce="abc123"
+      async
+      src="https://i5.walmartimages.com/beacon/beacon.js?bd=beacon.qa.walmart.com&bh=beacon.qa.lightest.walmart.com"
+    ></script>
+    <script src="https://i5.walmartimages.com/a14/capabilities.min.js"></script>
+  </head>
+  <body>
+    <p>Open your console to see CSP violations.</p>
+  </body>
+</html>
